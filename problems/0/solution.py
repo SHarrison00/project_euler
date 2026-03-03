@@ -10,6 +10,7 @@ except ValueError:
     print("Argument must be an integer")
     sys.exit(1)
 
+
 numbers = [i ** 2 for i in list(range(1, n + 1))]
 odd_squares = [i for i in numbers if i % 2 != 0]
 

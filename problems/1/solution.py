@@ -10,6 +10,7 @@ except ValueError:
     print("Argument must be an integer")
     sys.exit(1)
 
+
 numbers = [i for i in list(range(1, n))]
 multiples = [i for i in numbers if (i % 3 == 0) | (i % 5 == 0)]
 
