@@ -25,13 +25,13 @@ def find_all_1d_arrays(grid):
 
     horz_arrays = [row for row in grid]    
     vert_arrays = [grid[:,i] for i in range(0,n)]
-    diag_array = [np.diagonal(grid, i) for i in range(-n+4, n-3)]
+    diag_arrays = [np.diagonal(grid, i) for i in range(-n+4, n-3)]
     anti_diag_arrays = [np.fliplr(grid).diagonal(i) for i in range(-n+4, n-3)]
 
-    all_arrays = horz_arrays + vert_arrays + diag_array + anti_diag_arrays
+    all_arrays = horz_arrays + vert_arrays + diag_arrays + anti_diag_arrays
     
     assert min([len(all_arrays[i]) for i in range(0,len(all_arrays))]) >= 4, \
-        "Found an invalid array: too short (length < 4)"
+        "Found an invalid array: too short (length must be >= 4)"
         
     return all_arrays
 
@@ -39,9 +39,15 @@ def find_all_1d_arrays(grid):
 def max_subarray_prod(arrays):
     """
     Compute the maximum product of any four consecutive values found from a 
-    given list of 1D arrays using a modification of Kadane's algorithm.
+    given list of 1D arrays.
     """
-    pass
+    best_prod = float('-inf')
+    for array in arrays:
+        for i in range(0,len(array)-3):
+            current_prod = np.prod(array[i:i+4])
+            best_prod = max(best_prod, current_prod)
+    
+    return best_prod 
 
 
 def main():
@@ -50,8 +56,11 @@ def main():
     args = parser.parse_args()
     
     grid = load_grid(args.grid_path)
-    find_all_1d_arrays(grid)
+    arrays = find_all_1d_arrays(grid)
+    best_prod = max_subarray_prod(arrays)
 
+    print(f"Answer: {best_prod}")
+    
 
 if __name__ == "__main__":
     main()
