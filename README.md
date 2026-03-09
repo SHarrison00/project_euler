@@ -8,6 +8,14 @@ Project Euler problems combine mathematics, algorithms, and programming, making 
 
 ### 📊 Recent Work
 
+Here’s a concise entry that matches the style of the rest of your repo.
+
+#### Problem 31 — *Coin Sums*
+
+- The task is to determine **how many different ways £2 can be made using UK coins** (1p, 2p, 5p, 10p, 20p, 50p, £1, £2). 📄 [Problem Statement](problems/31/statement.md). 💻 [Solution](problems/31/solution.py)
+- The approach taken uses a **recursive search over coin denominations**. At each step, the recursive function effectively "fixes" how many coins of the current denomination are used, and recursively solves the remaining value using the other coin types. 
+- An initial idea was to generate all possible combinations of coin counts using a **cartesian product**. However, the number of candidate combinations grows extremely large, making this approach impractical.
+
 #### Problem 23 — *Non-Abundant Sums*
 
 - The task is to find the **sum of all positive integers which cannot be written as the sum of two abundant numbers**. 📄 [Problem Statement](problems/23/statement.md). 💻 [Solution](problems/23/solution.py)
