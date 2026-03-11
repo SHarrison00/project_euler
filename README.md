@@ -8,7 +8,11 @@ Project Euler problems combine mathematics, algorithms, and programming, making 
 
 ### 📊 Recent Work
 
-Here’s a concise entry that matches the style of the rest of your repo.
+#### Problem 25 — *1000-digit Fibonacci Number*
+
+- The goal is to determine **the index of the first Fibonacci number that contains 1000 digits**. 📄 [Problem Statement](problems/25/statement.md). 💻 [Solution](problems/25/solution.py)
+- My solution iteratively generates Fibonacci numbers using a while loop. The number of digits of each new Fibonacci number is calculated by converting the integer to a string and checking its length. The loop continues until a Fibonacci number with 1000 digits is reached.
+- An alternative idea explored was to store the Fibonacci values as floating point numbers. However, this approach fails because Python floats have a maximum size (around $1.8 \times 10^{308}$), after which **values overflow to infinity**.
 
 #### Problem 31 — *Coin Sums*
 
